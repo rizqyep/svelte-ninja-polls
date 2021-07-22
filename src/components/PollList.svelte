@@ -4,6 +4,7 @@
   import PollStore from "../stores/PollStore.js";
   import PollDetails from "./PollDetails.svelte";
 
+  //Traditional Sub-Unsub
   //   const unsub = PollStore.subscribe((data) => {
   //     polls = data;
   //   });
