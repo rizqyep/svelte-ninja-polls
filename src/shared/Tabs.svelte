@@ -1,5 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  //Dispatcher to Parent Component
+  const dispatch = createEventDispatcher();
 
   //Accept Props
   export let items;
@@ -9,7 +11,7 @@
 <div class="tabs">
   <ul>
     {#each items as item}
-      <li>
+      <li on:click={() => dispatch("tabChange", item)}>
         <div class:active={item == activeItem}>{item}</div>
       </li>
     {/each}
