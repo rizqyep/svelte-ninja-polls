@@ -24,19 +24,22 @@
       <span>{poll.answerA} ({poll.votesA}) </span>
     </div>
 
+    <div class="percent percent-b" />
     <div
-      class="percent percent-b"
+      class="answer"
       on:click={() => {
-        handleVote("a", poll.id);
+        handleVote("b", poll.id);
       }}
-    />
-    <div class="answer">
+    >
       <span>{poll.answerB} ({poll.votesB}) </span>
     </div>
   </div>
 </Card>
 
 <style>
+  .poll {
+    text-align: left;
+  }
   h3 {
     margin: 0 auto;
     color: #555;

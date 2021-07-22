@@ -37,15 +37,25 @@
 
     let copiedPolls = [...polls];
 
-    let upvotedPoll = copiedPolls.find((poll) => {
-      return poll.id == id;
+    // let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
+
+    // if (option === "a") {
+    //   upvotedPoll.votesA++;
+    // } else if (option === "b") {
+    //   upvotedPoll.votesB++;
+    // }
+
+    copiedPolls.forEach((poll) => {
+      if (poll.id == id) {
+        if (option == "a") {
+          poll.votesA++;
+        } else if (option == "b") {
+          poll.votesB++;
+        }
+      }
     });
 
-    if (option == "a") {
-      upvotedPoll.votesA++;
-    } else if (option == "b") {
-      upvotedPoll.votesB++;
-    }
+    polls = copiedPolls;
   };
 </script>
 
@@ -53,7 +63,7 @@
 <main>
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
   {#if activeItem == "Current Polls"}
-    <PollList {polls} on:vote={handleVote} />
+    <PollList {polls} on:castVote={handleVote} />
   {:else if activeItem === "Add New Poll"}
     <CreatePollForm on:addNewPoll={addNewPoll} />
   {/if}

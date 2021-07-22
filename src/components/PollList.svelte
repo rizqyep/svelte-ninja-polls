@@ -5,7 +5,7 @@
 
 <div class="poll-list">
   {#each polls as poll (poll.id)}
-    <PollDetails {poll} on:vote />
+    <PollDetails {poll} on:castVote />
   {/each}
 </div>
 
