@@ -31,18 +31,18 @@
 
     if (fields.answerB.trim().length < 5) {
       valid = false;
-      errors.answerB = "Answer Bneed to be 5 letter minimal";
+      errors.answerB = "Answer B need to be 5 letter minimal";
     } else {
       errors.answerA = "";
     }
-  };
 
-  if (valid) {
-    const poll = { ...fields, id: Math.random(), votesA: 0, votesB: 0 };
-    dispatch("addNewPoll", poll);
-  } else {
-    console.log("validation error!", errors);
-  }
+    if (valid) {
+      const poll = { ...fields, id: Math.random(), votesA: 0, votesB: 0 };
+      dispatch("addNewPoll", poll);
+    } else {
+      console.log("validation error!", errors);
+    }
+  };
 </script>
 
 <form on:submit|preventDefault={submitHandler}>
