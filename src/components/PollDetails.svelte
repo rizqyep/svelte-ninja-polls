@@ -1,22 +1,25 @@
 <script>
+  import Card from "./../shared/Card.svelte";
   export let poll;
 
   $: totalVotes = poll.votesA + poll.votesB;
 </script>
 
-<div class="poll">
-  <h3>{poll.question}</h3>
-  <p>Total Votes : {totalVotes}</p>
-  <div class="answer">
-    <div class="percent percent-a" />
-    <span>{poll.answerA} ({poll.votesA}) </span>
-  </div>
+<Card>
+  <div class="poll">
+    <h3>{poll.question}</h3>
+    <p>Total Votes : {totalVotes}</p>
+    <div class="answer">
+      <div class="percent percent-a" />
+      <span>{poll.answerA} ({poll.votesA}) </span>
+    </div>
 
-  <div class="percent percent-b" />
-  <div class="answer">
-    <span>{poll.answerB} ({poll.votesB}) </span>
+    <div class="percent percent-b" />
+    <div class="answer">
+      <span>{poll.answerB} ({poll.votesB}) </span>
+    </div>
   </div>
-</div>
+</Card>
 
 <style>
   h3 {
@@ -32,6 +35,7 @@
   .answer {
     background: #e9e9e9;
     cursor: pointer;
+    text-align: left;
     margin: 10px auto;
     position: relative;
   }
