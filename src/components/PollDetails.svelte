@@ -38,11 +38,6 @@
   .answer:hover {
     opacity: 0.5;
   }
-  .poll {
-    padding: 10px 30px;
-    border: 1px solid #eeeeee;
-    box-shadow: 1px 2px 10px #cecece;
-  }
   span {
     display: inline-block;
     padding: 10px 20px;
