@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Card from "./../shared/Card.svelte";
+  import PollStore from "../stores/PollStore.js";
   export let poll;
   let dispatch = createEventDispatcher();
   $: totalVotes = poll.votesA + poll.votesB;
@@ -8,7 +9,21 @@
   $: percentB = Math.floor((poll.votesB / totalVotes) * 100);
 
   const handleVote = (option, id) => {
-    dispatch("castVote", { option, id });
+    PollStore.update((currentPolls) => {
+      let copiedPolls = [...currentPolls];
+
+      copiedPolls.forEach((poll) => {
+        if (poll.id == id) {
+          if (option == "a") {
+            poll.votesA++;
+          } else if (option == "b") {
+            poll.votesB++;
+          }
+        }
+      });
+
+      return [...copiedPolls];
+    });
   };
 </script>
 
